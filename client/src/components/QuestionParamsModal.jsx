@@ -1,7 +1,9 @@
 import React from 'react'
 import {Close} from '@material-ui/icons'
 import HorizontalLine from '../utilities/HorizontalLine'
+import generateExample from '../function/generateExample'
 export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) {
+    const example = generateExample(state.type)
     const closeModal = () => {
         dispatch({type:'CLOSEMODAL'})
         setOpenFirstModal(false)
@@ -24,9 +26,9 @@ export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) 
                 <h2 className='font-semibold text-2xl mb-2'>{state.type}</h2>
                 <main className='text-lg'>
                     <h3 className='font-semibold'>Contoh Soal</h3>
-                    <h3>20 + 6 = </h3>
+                    <h3>{example.question}</h3>
                     <h3 className='font-semibold'>Jawaban</h3>
-                    <h3>26</h3>
+                    <h3>{example.answer}</h3>
                 </main>
             </section>
             <HorizontalLine color='gray' height='1'/>
