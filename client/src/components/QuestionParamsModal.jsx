@@ -2,8 +2,9 @@ import React from 'react'
 import {Close} from '@material-ui/icons'
 import HorizontalLine from '../utilities/HorizontalLine'
 import generateExample from '../function/generateExample'
+import DifficultyButtons from './DifficultyButtons'
 export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) {
-    const example = generateExample(state.type)
+    const example = generateExample(state.type,'SP')
     const closeModal = () => {
         dispatch({type:'CLOSEMODAL'})
         setOpenFirstModal(false)
@@ -32,16 +33,7 @@ export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) 
                 </main>
             </section>
             <HorizontalLine color='gray' height='1'/>
-            <section className='px-3 py-2'>
-                <h2 className='font-semibold text-2xl mb-2'>Tingkat Kesusahan</h2>
-                <main className='flex flex-col items-start text-lg mb-1'>
-                    <button className='bg-green-400 rounded-md px-2 py-1 text-gray-100 tracking-wider mb-1'>Satuan</button>
-                    <button className='bg-blue-400 rounded-md px-2 py-1 text-gray-100 tracking-wider mb-1'>Satuan + Puluhan</button>
-                    <button className='bg-yellow-500 rounded-md px-2 py-1 text-gray-100 tracking-wider mb-1'>Puluhan</button>
-                    <button className='bg-red-400 rounded-md px-2 py-1 text-gray-100 tracking-wider mb-1'>Puluhan + Ratusan</button>
-                    <button className='bg-purple-400 rounded-md px-2 py-1 text-gray-100 tracking-wider mb-1'>Ratusan</button>
-                </main>
-            </section>
+            <DifficultyButtons/>
             <HorizontalLine color='gray' height='1'/>
             <section className='px-3 py-2 flex mb-2 justify-center'>
                 <div className='flex flex-col'>
