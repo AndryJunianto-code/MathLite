@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+
+.questionStyleOption{
+    @apply px-4 py-2 text-lg tracking-wider w-full hover:bg-gray-100 border-b-2 border-gray-200;
+}
+.basicButton{
+    @apply rounded-sm px-2 py-1 text-center;
+}
+.miniInput{
+    @apply w-10/12 border-2 border-gray-300 rounded-sm px-1 focus:border-blue-400 focus:outline-none;
+}
