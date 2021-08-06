@@ -12,7 +12,6 @@ const generateExample = (operator,type,frequency) => {
     if(type === 'PR') multiplier = {first:99,second:999,min1:10,min2:100}
     if(type === 'RR') multiplier = {first:999,second:999,min1:100,min2:100}/* <100 ? +90 */
     let tempQuestion = ""
-    let tempAnswer = 0
     if(symbol === '/') {/* DIV */
         for(let i = 0; i < frequency; i+=2) {
             let randomFirstNum = Math.random()*multiplier.first
@@ -34,6 +33,7 @@ const generateExample = (operator,type,frequency) => {
     
     tempQuestion = tempQuestion.slice(0,-3)
     let answer = eval(tempQuestion)
+    tempQuestion = tempQuestion.split("*").join('x')
     let question = `${tempQuestion} =`
 
     return {question,answer}

@@ -8,12 +8,13 @@ import generateQuestion from '../function/generateQuestion'
 export default function QuestionParamsSection({setOpenCombinedModal,setOpenFirstModal}) {
     const {example,exampleState,setQuestionAndAnswer} = useExampleContext()
     const [totalQuestion,setTotalQuestion] = useState(10)
+    const questionLimit = 2000
     const closeModal = () => {
         setOpenCombinedModal(false)
         setOpenFirstModal(false)
     }
     const clickDone = () => {
-        let allQuestionAndAnswer = generateQuestion(totalQuestion,exampleState)
+        let allQuestionAndAnswer = generateQuestion(totalQuestion>questionLimit?questionLimit:totalQuestion,exampleState)
         setQuestionAndAnswer((prev)=>[...prev,allQuestionAndAnswer])
         setOpenCombinedModal(false)
         setOpenFirstModal(false)

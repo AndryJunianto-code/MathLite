@@ -15,7 +15,7 @@ const ExampleProvider = ({children}) => {
     const [questionAndAnswer, setQuestionAndAnswer] = useState([])
     useEffect(()=> {
         setExample(generateExample(operator,type,frequency))
-    },[exampleState])
+    },[operator,type,frequency])
     return <ExampleContext.Provider value={{
         example,setExample,exampleDispatch,exampleState,questionAndAnswer,setQuestionAndAnswer
     }}>

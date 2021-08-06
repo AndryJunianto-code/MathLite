@@ -29873,6 +29873,23 @@ video {
   outline-offset: 2px;
 }
 
+.menuOption{
+  width: 100%;
+}
+
+.menuOption:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+}
+
+.menuOption {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

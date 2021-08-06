@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './style/main.css'
 import {ExampleProvider} from './context/exampleContext'
+import {AnswerProvider} from './context/answerContext'
 ReactDOM.render(
   <React.StrictMode>
     <ExampleProvider>
+      <AnswerProvider>
     <App />
+    </AnswerProvider>
     </ExampleProvider>
   </React.StrictMode>,
   document.getElementById('root')

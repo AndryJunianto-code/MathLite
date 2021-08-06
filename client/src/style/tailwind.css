@@ -11,3 +11,6 @@
 .miniInput{
     @apply w-10/12 border-2 border-gray-300 rounded-sm focus:border-blue-400 focus:outline-none;
 }
+.menuOption{
+    @apply font-semibold tracking-wider text-center w-full py-2 hover:bg-gray-200;
+}

@@ -8,6 +8,7 @@ import generateQuestion from '../function/generateQuestion'
 export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) {
     const {example,setQuestionAndAnswer,exampleState} = useExampleContext()
     const [totalQuestion,setTotalQuestion] = useState(10)
+    const questionLimit = 2000
     const closeModal = () => {
         dispatch({type:'CLOSEMODAL'})
         setOpenFirstModal(false)
@@ -16,7 +17,7 @@ export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) 
         dispatch({type:'CLOSEMODAL'})
     }
     const clickDone = () => {
-        let allQuestionAndAnswer = generateQuestion(totalQuestion,exampleState)
+        let allQuestionAndAnswer = generateQuestion(totalQuestion>questionLimit?questionLimit:totalQuestion,exampleState)
         setQuestionAndAnswer((prev)=>[...prev,allQuestionAndAnswer])
         dispatch({type:'CLOSEMODAL'})
         setOpenFirstModal(false)

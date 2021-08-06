@@ -1,6 +1,7 @@
 import { useExampleContext } from "../context/exampleContext"
 import IndividualQuestion from "./IndividualQuestion"
 import {v4} from 'uuid'
+import { useState } from "react"
 
 export default function QuestionSection() {
     const {questionAndAnswer} = useExampleContext()
