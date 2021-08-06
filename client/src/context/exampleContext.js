@@ -4,7 +4,7 @@ import exampleReducer from '../reducer/exampleReducer'
 const EXAMPLE_INITIAL = {
     operator:"Pertambahan",/* Addition */
     type:'SP',
-    frequency:2
+    frequency:2,
 }
 const ExampleContext = React.createContext(EXAMPLE_INITIAL)
 
@@ -12,11 +12,12 @@ const ExampleProvider = ({children}) => {
     const [exampleState,exampleDispatch] = useReducer(exampleReducer,EXAMPLE_INITIAL)
     const {operator,type,frequency} = exampleState
     const [example,setExample] = useState(generateExample(operator,type,frequency))
+    const [questionAndAnswer, setQuestionAndAnswer] = useState([])
     useEffect(()=> {
         setExample(generateExample(operator,type,frequency))
     },[exampleState])
     return <ExampleContext.Provider value={{
-        example,setExample,exampleDispatch,exampleState
+        example,setExample,exampleDispatch,exampleState,questionAndAnswer,setQuestionAndAnswer
     }}>
         {children}
     </ExampleContext.Provider>

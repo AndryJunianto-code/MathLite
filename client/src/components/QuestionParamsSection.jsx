@@ -4,14 +4,17 @@ import HorizontalLine from '../utilities/HorizontalLine'
 import DifficultyButtons from './DifficultyButtons'
 import { useExampleContext } from '../context/exampleContext'
 import FrequencyInput from './FrequencyInput'
+import generateQuestion from '../function/generateQuestion'
 export default function QuestionParamsSection({setOpenCombinedModal,setOpenFirstModal}) {
-    const {example,exampleState} = useExampleContext()
+    const {example,exampleState,setQuestionAndAnswer} = useExampleContext()
     const [totalQuestion,setTotalQuestion] = useState(10)
     const closeModal = () => {
         setOpenCombinedModal(false)
         setOpenFirstModal(false)
     }
     const clickDone = () => {
+        let allQuestionAndAnswer = generateQuestion(totalQuestion,exampleState)
+        setQuestionAndAnswer((prev)=>[...prev,allQuestionAndAnswer])
         setOpenCombinedModal(false)
         setOpenFirstModal(false)
     }
