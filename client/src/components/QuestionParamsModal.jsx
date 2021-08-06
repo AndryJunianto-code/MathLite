@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import {Close} from '@material-ui/icons'
 import HorizontalLine from '../utilities/HorizontalLine'
 import DifficultyButtons from './DifficultyButtons'
 import { useExampleContext } from '../context/exampleContext'
 import FrequencyInput from './FrequencyInput'
+import generateQuestion from '../function/generateQuestion'
 export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) {
-    const {example} = useExampleContext()
+    const {example,setQuestionAndAnswer,exampleState} = useExampleContext()
+    const [totalQuestion,setTotalQuestion] = useState(10)
     const closeModal = () => {
         dispatch({type:'CLOSEMODAL'})
         setOpenFirstModal(false)
@@ -13,6 +16,8 @@ export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) 
         dispatch({type:'CLOSEMODAL'})
     }
     const clickDone = () => {
+        let allQuestionAndAnswer = generateQuestion(totalQuestion,exampleState)
+        setQuestionAndAnswer((prev)=>[...prev,allQuestionAndAnswer])
         dispatch({type:'CLOSEMODAL'})
         setOpenFirstModal(false)
     }
@@ -39,7 +44,9 @@ export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) 
                 <FrequencyInput/>
                 <div className='flex flex-col'>
                     <h2 className='text-lg font-semibold mb-1'>Jumlah Soal</h2>
-                    <input type="text" className='miniInput'/>
+                    <input type="text" className='miniInput'
+                    onChange={(e)=>setTotalQuestion(e.target.value)} value={totalQuestion}
+                    />
                 </div>
             </section>
             <HorizontalLine color='gray' height='1'/>

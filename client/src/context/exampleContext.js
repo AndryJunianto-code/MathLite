@@ -3,7 +3,7 @@ import generateExample from "../function/generateExample";
 import exampleReducer from '../reducer/exampleReducer'
 const EXAMPLE_INITIAL = {
     operator:"Pertambahan",/* Addition */
-    type:'SP',
+    type:'SS',
     frequency:2,
 }
 const ExampleContext = React.createContext(EXAMPLE_INITIAL)

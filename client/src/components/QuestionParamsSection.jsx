@@ -41,7 +41,7 @@ export default function QuestionParamsSection({setOpenCombinedModal,setOpenFirst
                 <FrequencyInput/>
                 <div className='flex flex-col'>
                     <h2 className='text-lg font-semibold mb-1'>Jumlah Soal</h2>
-                    <input type="number" className='miniInput pl-1' 
+                    <input type="number" className='miniInput pl-1' max='2000' min='1'
                     onChange={(e)=>setTotalQuestion(e.target.value)} value={totalQuestion}
                     />
                 </div>

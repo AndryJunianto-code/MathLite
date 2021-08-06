@@ -19,7 +19,7 @@ export default function Home() {
     },[])
     return (
         <>
-            <div className='lg:mt-20 bg-gray-100 lg:w-3/4 xl:w-8/12 2xl:w-1/2 lg:rounded-md'>
+            <div className='lg:mt-20 bg-white lg:w-3/4 xl:w-8/12 2xl:w-1/2 lg:rounded-md'>
                 <Navbar/>
                 <Content setOpenFirstModal={setOpenFirstModal} setOpenCombinedModal={setOpenCombinedModal} bigScreen={bigScreen}/>
             </div>
