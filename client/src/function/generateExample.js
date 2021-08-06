@@ -20,8 +20,7 @@ const generateExample = (operator,type,frequency) => {
             let randomNextNum = Math.random()*multiplier.second
             let nextNum = randomNextNum < multiplier.min2 ? Math.round(randomNextNum+multiplier.min2) : Math.round(randomNextNum)
             let m = firstNum * nextNum
-            tempQuestion += `${m} / ${nextNum} /`
-            tempAnswer += eval(m.toString()+symbol+nextNum.toString())
+            tempQuestion += `${m} / ${nextNum} / `
         }
     } else { /* MULTI SUB ADD */
         for(let i = 0; i < frequency; i+=2) {
@@ -29,14 +28,13 @@ const generateExample = (operator,type,frequency) => {
             let firstNum = randomFirstNum < multiplier.min1 ? Math.round(randomFirstNum+multiplier.min1) : Math.round(randomFirstNum)/* ENSURE NUMBER IS one/tenth/hundredth */
             let randomNextNum = Math.random()*multiplier.second
             let nextNum = randomNextNum < multiplier.min2 ? Math.round(randomNextNum+multiplier.min2) : Math.round(randomNextNum)
-            tempQuestion += `${firstNum} ${symbol} ${nextNum} ${symbol}`
-            tempAnswer += eval(firstNum.toString() + symbol + nextNum.toString())
+            tempQuestion += `${firstNum} ${symbol} ${nextNum} ${symbol} `
         }
     }
     
-    tempQuestion = tempQuestion.slice(0,-1)
+    tempQuestion = tempQuestion.slice(0,-3)
+    let answer = eval(tempQuestion)
     let question = `${tempQuestion} =`
-    let answer =  tempAnswer
 
     return {question,answer}
 }

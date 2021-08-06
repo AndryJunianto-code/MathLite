@@ -9,5 +9,5 @@
     @apply rounded-sm px-2 py-1 text-center;
 }
 .miniInput{
-    @apply w-10/12 border-2 border-gray-300 rounded-sm px-1 focus:border-blue-400 focus:outline-none;
+    @apply w-10/12 border-2 border-gray-300 rounded-sm focus:border-blue-400 focus:outline-none;
 }

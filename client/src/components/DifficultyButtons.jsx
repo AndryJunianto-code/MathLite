@@ -1,8 +1,8 @@
-import React from 'react'
-import generateExample from '../function/generateExample'
-export default function DifficultyButtons({secondModalInfo,setExample}) {
+import {useExampleContext} from '../context/exampleContext'
+export default function DifficultyButtons() {
+    const {exampleDispatch} = useExampleContext()
     const handleDifficulty = (e) => {
-        setExample(generateExample(secondModalInfo,e.target.id,2))
+        exampleDispatch({type:'CHANGE_TYPE',payload:e.target.id})
     }
     return (
         <section className='px-3 py-2'>

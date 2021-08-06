@@ -1,10 +1,10 @@
-import React from 'react'
 import {Close} from '@material-ui/icons'
 import HorizontalLine from '../utilities/HorizontalLine'
-import generateExample from '../function/generateExample'
 import DifficultyButtons from './DifficultyButtons'
+import { useExampleContext } from '../context/exampleContext'
+import FrequencyInput from './FrequencyInput'
 export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) {
-    const example = generateExample(state.type,'SP')
+    const {example} = useExampleContext()
     const closeModal = () => {
         dispatch({type:'CLOSEMODAL'})
         setOpenFirstModal(false)
@@ -33,13 +33,10 @@ export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) 
                 </main>
             </section>
             <HorizontalLine color='gray' height='1'/>
-            <DifficultyButtons/>
+            <DifficultyButtons secondModalInfo={state.type}/>
             <HorizontalLine color='gray' height='1'/>
             <section className='px-3 py-2 flex mb-2 justify-center'>
-                <div className='flex flex-col'>
-                    <h2 className='text-lg font-semibold mb-1'>Frekuensi</h2>
-                    <input type="text" className='miniInput'/>
-                </div>
+                <FrequencyInput/>
                 <div className='flex flex-col'>
                     <h2 className='text-lg font-semibold mb-1'>Jumlah Soal</h2>
                     <input type="text" className='miniInput'/>

@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './style/main.css'
+import {ExampleProvider} from './context/exampleContext'
 ReactDOM.render(
   <React.StrictMode>
+    <ExampleProvider>
     <App />
+    </ExampleProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

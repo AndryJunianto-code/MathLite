@@ -1,10 +1,12 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import {Close} from '@material-ui/icons'
 import HorizontalLine from '../utilities/HorizontalLine'
-import generateExample from '../function/generateExample'
 import DifficultyButtons from './DifficultyButtons'
-export default function QuestionParamsSection({secondModalInfo,setOpenCombinedModal,setOpenFirstModal}) {
-    const [example,setExample] = useState(generateExample(secondModalInfo,'SP',2))
+import { useExampleContext } from '../context/exampleContext'
+import FrequencyInput from './FrequencyInput'
+export default function QuestionParamsSection({setOpenCombinedModal,setOpenFirstModal}) {
+    const {example,exampleState} = useExampleContext()
+    const [totalQuestion,setTotalQuestion] = useState(10)
     const closeModal = () => {
         setOpenCombinedModal(false)
         setOpenFirstModal(false)
@@ -21,7 +23,7 @@ export default function QuestionParamsSection({secondModalInfo,setOpenCombinedMo
             </section>
             <HorizontalLine color='gray' height='1'/>
             <section className='px-3 py-2'>
-                <h2 className='font-semibold text-2xl mb-2'>{secondModalInfo}</h2>
+                <h2 className='font-semibold text-2xl mb-2'>{exampleState.operator}</h2>
                 <main className='text-lg'>
                     <h3 className='font-semibold'>Contoh Soal</h3>
                     <h3>{example.question}</h3>
@@ -30,16 +32,15 @@ export default function QuestionParamsSection({secondModalInfo,setOpenCombinedMo
                 </main>
             </section>
             <HorizontalLine color='gray' height='1'/>
-            <DifficultyButtons secondModalInfo={secondModalInfo} setExample={setExample}/>
+            <DifficultyButtons/>
             <HorizontalLine color='gray' height='1'/>
             <section className='px-3 py-2 flex mb-2 justify-center'>
-                <div className='flex flex-col'>
-                    <h2 className='text-lg font-semibold mb-1'>Frekuensi</h2>
-                    <input type="text" className='miniInput'/>
-                </div>
+                <FrequencyInput/>
                 <div className='flex flex-col'>
                     <h2 className='text-lg font-semibold mb-1'>Jumlah Soal</h2>
-                    <input type="text" className='miniInput'/>
+                    <input type="number" className='miniInput pl-1' 
+                    onChange={(e)=>setTotalQuestion(e.target.value)} value={totalQuestion}
+                    />
                 </div>
             </section>
             <HorizontalLine color='gray' height='1'/>

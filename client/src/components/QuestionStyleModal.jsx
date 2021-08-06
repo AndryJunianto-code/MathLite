@@ -1,13 +1,16 @@
 import React from 'react'
 import {Close} from '@material-ui/icons'
 import HorizontalLine from '../utilities/HorizontalLine'
+import { useExampleContext } from '../context/exampleContext'
 export default function QuestionStyleModal({setOpenFirstModal,dispatch}) {
+    const {exampleDispatch} = useExampleContext()
     const closeModal = () => {
         setOpenFirstModal(false)
     }
     const openSecondModal = (e) => {
         setOpenFirstModal(true)
         dispatch({type:e.target.id})
+        exampleDispatch({type:'CHANGE_OPERATOR', payload:e.target.textContent})
     }
     return (
         <div className='absolute top-0 bottom-0 left-0 right-0 bg-white z-20'>

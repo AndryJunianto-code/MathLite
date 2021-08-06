@@ -29869,14 +29869,6 @@ video {
 .miniInput:focus {
   --tw-border-opacity: 1;
   border-color: rgba(96, 165, 250, var(--tw-border-opacity));
-}
-
-.miniInput {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
-.miniInput:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }

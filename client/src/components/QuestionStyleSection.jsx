@@ -1,8 +1,11 @@
 import React from 'react'
 import HorizontalLine from '../utilities/HorizontalLine'
+import { useExampleContext } from '../context/exampleContext'
 export default function QuestionStyleSection({setSecondModalInfo}) {
+    const {exampleDispatch} = useExampleContext()
     const goSecondModal = (e) => {
         setSecondModalInfo(e.target.textContent)
+        exampleDispatch({type:'CHANGE_OPERATOR', payload:e.target.textContent})
     }
     return (
         <div className='border-r-2 border-gray-200'>
