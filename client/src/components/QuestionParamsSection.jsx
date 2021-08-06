@@ -17,6 +17,7 @@ export default function QuestionParamsSection({setOpenCombinedModal,setOpenFirst
         setQuestionAndAnswer((prev)=>[...prev,allQuestionAndAnswer])
         setOpenCombinedModal(false)
         setOpenFirstModal(false)
+        window.scrollTo(0,window.pageYOffset-600)
     }
     return (
         <div>

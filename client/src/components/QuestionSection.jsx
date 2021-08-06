@@ -12,7 +12,7 @@ export default function QuestionSection() {
                     <IndividualQuestion data={data} index={index} key={v4()}/>
                     ))}
                 </div>
-            ))}   
+            ))}  
         </div>
     )
 }

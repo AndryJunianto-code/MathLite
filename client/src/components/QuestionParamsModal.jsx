@@ -20,6 +20,7 @@ export default function QuestionParamsModal({state,dispatch,setOpenFirstModal}) 
         setQuestionAndAnswer((prev)=>[...prev,allQuestionAndAnswer])
         dispatch({type:'CLOSEMODAL'})
         setOpenFirstModal(false)
+        window.scrollTo(0,window.pageYOffset-600)
     }
     return (
         <div className='absolute top-0 bottom-0 left-0 right-0 bg-white z-20'>
